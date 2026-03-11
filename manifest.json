@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "English-Trans-Chinese",
+  "version": "1.0.0",
+  "description": "鼠标悬停在英语单词上，即可在下方显示其中文意思。",
+  "icons": {
+    "16": "icons/mouse-pointer.svg",
+    "48": "icons/mouse-pointer.svg",
+    "128": "icons/mouse-pointer.svg"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "*://translate.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
